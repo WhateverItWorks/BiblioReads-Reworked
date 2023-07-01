@@ -20,8 +20,10 @@ Inspired by [Nitter](https://github.com/zedeus/nitter), [libremdb](https://githu
 | Dark Mode                                   | Light Mode                                   |
 | ------------------------------------------- | -------------------------------------------- |
 | ![](/public/readme/books-dark.png?raw=true) | ![](/public/readme/books-light.png?raw=true) |
-
-#### View more [screenshots](#more-screenshots).
+| ![](/public/readme/author-dark.png?raw=true) | ![](/public/readme/author-light.png?raw=true) |
+| ![](/public/readme/search-dark.png?raw=true) | ![](/public/readme/search-light.png?raw=true) |
+| ![](/public/readme/quote-dark.png?raw=true)  | ![](/public/readme/quote-light.png?raw=true)  |
+| ![](/public/readme/home-dark.png?raw=true)   | ![](/public/readme/home-light.png?raw=true)   |
 
 ---
 
@@ -170,101 +172,27 @@ Goodreads collects information about your device and uses tracking cookies for a
 
 ---
 
-## Installation:
-
-### Manual Installation
-
-**Prerequisites:**
-
-- [Node.js](https://nodejs.org/en/)
-- [Git](https://github.com/git-guides/install-git)
-
-1. Clone the Git Repository
-
-```bash
-git clone https://github.com/nesaku/BiblioReads.git
-cd BiblioReads
+### Deploy with Dockerfile (Build from Source)
+```
+git clone https://github.com/WhateverItWorks/My-BiblioReads-Docker-Compose.git read
+cd read
+nano docker-compose.yml
+nano .env.local (optional)
+docker-compose up -d --build
 ```
 
-2. Install & Start The Project
-
-```bash
-npm install
-npm run start
-# or
-yarn install
-yarn start
+### Deploy with Docker
+```
+git clone https://github.com/WhateverItWorks/My-BiblioReads-Docker-Compose.git read
+cd read
+nano docker-compose.yml
+nano .env.local (optional)
+docker-compose down
+docker-compose pull
+docker-compose up -d
 ```
 
-### Docker Installation
 
-##### Docker CLI:
 
-```docker
-docker run -d \
-  --name biblioreads \
-  -p 3000:3000 \
-  --restart unless-stopped \
-  nesaku/biblioreads:latest
-```
 
-##### Docker-Compose:
 
-1. Download (or copy) `docker-compose.yml` from the repository
-2. Edit the default environment variables with your variables (Optional)
-3. Run the command `docker-compose up -d`
-
-#### More Information:
-
-Visit the [Docker Image Repo](https://github.com/nesaku/BiblioReads-Docker) for more information.
-
----
-
-## Development
-
-### Built Using
-
-- Next.js
-- Cheerio
-- TailwindCSS
-- next-themes
-
-### Getting Started
-
-To run the development server:
-
-```bash
-git clone https://github.com/nesaku/BiblioReads.git
-cd BiblioReads
-# then
-npm install
-npm run dev
-# or
-yarn install
-yarn dev
-```
-
-**ⓘ If you want to use the API directly or run any kind of automation. Please host the project on your own server.**
-
----
-
-## More Screenshots:
-
-| Dark Mode                                    | Light Mode                                    |
-| -------------------------------------------- | --------------------------------------------- |
-| ![](/public/readme/author-dark.png?raw=true) | ![](/public/readme/author-light.png?raw=true) |
-| ![](/public/readme/search-dark.png?raw=true) | ![](/public/readme/search-light.png?raw=true) |
-| ![](/public/readme/quote-dark.png?raw=true)  | ![](/public/readme/quote-light.png?raw=true)  |
-| ![](/public/readme/home-dark.png?raw=true)   | ![](/public/readme/home-light.png?raw=true)   |
-
----
-
-## License
-
-Licensed under the [GNU AGPLv3](https://www.gnu.org/licenses/agpl-3.0.en.html). Please see [LICENSE.txt](./LICENSE.txt) for more information.
-
----
-
-## Disclaimer
-
-BiblioReads does not host any content. All content on BiblioReads is sourced from Goodreads. BiblioReads is not affiliated with Goodreads. Goodreads is a trademark of Amazon Technologies, Inc.
