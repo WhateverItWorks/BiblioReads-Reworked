@@ -5,7 +5,7 @@
 <div align="center">
 BiblioReads is a free and open source alternative Goodreads front-end focused on privacy.
 
-Scrapes content from the Goodreads book page and presents the results without any of the bloat.
+Scrapes content from Goodreads and presents the results without any of the bloat.
 
 Inspired by [Nitter](https://github.com/zedeus/nitter), [libremdb](https://github.com/zyachel/libremdb) and other open source alternative front-end projects.
 
@@ -44,7 +44,7 @@ Inspired by [Nitter](https://github.com/zedeus/nitter), [libremdb](https://githu
 | Instance URL                                                                                                                                  |        Country         | Provider   | Notes                                                     |
 | --------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------: | ---------- | --------------------------------------------------------- |
 | [biblioreads.eu.org](https://biblioreads.eu.org)                                                                                              |          :us:          | Netlify    | Run by [me](https://github.com/nesaku)                    |
-| [biblioreads.ml](https://biblioreads.ml)                                                                                                      |          :us:          | Vercel     | Run by [me](https://github.com/nesaku)                    |
+| [biblioreads.vercel.app](https://biblioreads.vercel.app)                                                                                      |          :us:          | Vercel     | Run by [me](https://github.com/nesaku)                    |
 | [biblioreads.mooo.com](https://biblioreads.mooo.com)                                                                                          | :globe_with_meridians: | Cloudflare | Run by [me](https://github.com/nesaku)                    |
 | [bl.vern.cc](https://bl.vern.cc)                                                                                                              |          :us:          | Hetzner    | Run by [~vern](https://vern.cc)                           |
 | [biblioreads.lunar.icu](https://biblioreads.lunar.icu)                                                                                        | :globe_with_meridians: | Cloudflare | Run by [Lunar.ICU](https://lunar.icu)                     |

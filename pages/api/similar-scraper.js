@@ -1,11 +1,10 @@
 const cheerio = require("cheerio");
 
-const SearchScraper = async (req, res) => {
+const SimilarScraper = async (req, res) => {
   if (req.method === "POST") {
     const scrapeURL = req.body.queryURL.split("&")[0];
-
     try {
-      const response = await fetch(`${scrapeURL}&search_type=lists`, {
+      const response = await fetch(`${scrapeURL}`, {
         method: "GET",
         headers: new Headers({
           "User-Agent":
@@ -15,34 +14,52 @@ const SearchScraper = async (req, res) => {
       });
       const htmlString = await response.text();
       const $ = cheerio.load(htmlString);
-      const numberOfResults = $(".leftContainer > h3").text();
-      const result = $("table > tbody > tr")
+      const title = $("h1.gr-h1.gr-h1--serif").text();
+      const books = $(
+        'div[data-react-class="ReactComponents.SimilarBooksList"] > div.listWithDividers > div.listWithDividers__item'
+      )
         .map((i, el) => {
           const $el = $(el);
-          const cover = $el.find("td > div > a > img").attr("src");
-          const title = $el.find("td > a").text();
-          const listURL = $el.find("td > a").attr("href");
-          const rating = $el.find("td > div").text().replaceAll("\n", "");
+          const cover = $el
+            .find(
+              "div.responsiveBook > div.objectLockupContent > div.objectLockupContent__media > div.responsiveBook__media > a > img"
+            )
+            .attr("src");
+
+          const title = $el
+            .find(
+              "div.responsiveBook > div.objectLockupContent > div.u-paddingBottomXSmall > a > span[itemprop = 'name']"
+            )
+            .text();
+          const bookURL = $el
+            .find(
+              "div.responsiveBook > div.objectLockupContent > div.u-paddingBottomXSmall > a"
+            )
+            .attr("href");
+          const rating = $el
+            .find(
+              "div.responsiveBook > div.objectLockupContent > div.u-paddingBottomXSmall > div.communityRating > span"
+            )
+            .text();
           const id = i + 1;
           return {
             id: id,
             cover: cover,
             title: title,
-            listURL: listURL,
+            bookURL: bookURL,
             rating: rating,
           };
         })
         .toArray();
-      const lastScraped = new Date().toISOString();
 
+      const lastScraped = new Date().toISOString();
       res.statusCode = 200;
       return res.json({
         status: "Received",
         source: "https://github.com/nesaku/biblioreads",
         scrapeURL: scrapeURL,
-        searchType: "lists",
-        numberOfResults: numberOfResults,
-        result: result,
+        title: title,
+        books: books,
         lastScraped: lastScraped,
       });
     } catch (error) {
@@ -61,4 +78,4 @@ const SearchScraper = async (req, res) => {
   }
 };
 
-export default SearchScraper;
+export default SimilarScraper;
